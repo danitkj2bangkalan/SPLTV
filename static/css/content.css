@@ -1,0 +1,74 @@
+.resize{
+    width: 2.5%;
+    height: 2.5%;
+}
+.soal{
+    background: rgba(238, 241, 183, 0.979);
+}
+.biografi{
+    background: #d9d9d9; 
+    margin: 5%; 
+    padding: 2%;
+    text-align: center;
+}
+.foto{
+    background: white;
+    margin: 2%;
+}
+.tentang_biografi{
+    text-align: left; 
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 30%;
+    margin-right: 30%
+}
+.referensi{
+    text-align: left;
+}
+.foto_amin{
+    width: 50%;
+    height: 50%;
+}
+.jam{
+    background-color: #d9d9d9;
+    margin-right: 0.5%;
+}
+.splash{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: 200;
+    color: antiquewhite;
+    text-align: center;
+    line-height: 90vh;
+}
+.splash.display-none{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: -10;
+    color: antiquewhite;
+    text-align: center;
+    line-height: 90vh;
+    transition: all 0.5s;
+}
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+.fade-in{
+    opacity: 0;
+    animation:fadeIn 1s ease-in forwards;
+}
+.resize_logo_home{
+    width: 25%;
+    height: 50%;
+}

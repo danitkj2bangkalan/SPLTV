@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!-- didesain oleh mrfirdaus -->
+  <head>
+    <title>Math Learning</title>
+    <!-- meta tag -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    
+    <!--     Fonts and icons     -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Bootstrap -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css' )}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css' )}}" />
+    
+    <!-- untuk javascripts -->
+    <script type="text/javascript" src="{{url_for('static', filename='js/sidebar.js')}}"> </script>
+  </head>
+  <body>
+    <!-- navbar -->
+    {% include './navbar.html' %} 
+    <!-- card isi  -->
+    <div class="row">
+      <!-- card sidebar -->
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            {% include './sidebar.html' %} 
+          </div>
+        </div>
+      </div>
+      <!-- card  konten-->
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-bdy">
+              <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                <div class="soal">
+                  <h4 class="card-title" id="list-item-1">Materi 1</h4>
+                  <p>
+                    <strong>Pengertian SPLTV</strong>
+                  </br>
+                    Sistem persamaan linear tiga variabel (SPLTV) yaitu suatu persamaan matematika yang terdiri atas 3 persamaan linear yang juga masing – masing persamaan bervariabel tiga (misal  x, y dan z).
+                    Sistem Persamaan linear tiga variabel (SPLTV) juga dapat diartikan sebagai sebuah konsepdalam ilmu matematika yang digunakan untuk menyelesaikan kasus yang tidak dapat diselesaikan menggunakan persamaan linear satu variabel dan persamaan linear dua variabel.
+                  </br>
+                    <strong>Definisi Dan Bentuk Umum</strong>
+                  </br>
+                    Sistem persamaan linear tiga variabel (SPLTV) yaitu juga merupakan bentuk perluasan darisistem persamaan linear dua variabel (SPLDV)Bentuk umum dari Sistem Persamaan Linear Tiga Variabel (SPLTV) dalam x, y, dan z dapatdituliskan berikut ini :
+                  </br>
+                  <ul>
+                    <li>a1x+b1y+c1z=d1</li>
+                    <li>a2x+b2y+c2z=d2</li>
+                    <li>a3x+b3y+c3z=d3</li>
+                  </ul>
+                  </br>
+                    Dengan a1, a2, a3, b1, b2, b3, c1, c2, c3, d1, d2, dan d3 adalah bilangan-bilangan real.
+                  </br>
+                    <strong>Ciri – Ciri</strong>
+                    Sistem Persamaan Linear Tiga Variabel (SPLTV) juga memiliki beberapa ciri – ciri tersendiri,yaitu sebagai berikut :
+                    <ul>
+                      <li>SPLTV, Menggunakan relasi tanda sama dengan (=)</li>
+                      <li>SPLTV, Memiliki tiga variabel</li>
+                      <li>SPLTV, Ketiga variabel tersebut memiliki derajat satu (berpangkat satu)
+                  </p>
+                </div>
+                <div class="soal">
+                  <h4 class="card-title" id="list-item-2">Materi 2</h4>
+                    <p>
+                      Metode Subsitusi</br>
+                      Contoh soal:</br>
+                      Tentukan Himpunan Penyelesaian Dari</br>
+                      2x+y+z=12</br>
+                      x+2y-z=3</br>
+                      3x-y+z=11</br>
+
+                      Jawab :</br>
+                      Dari pers 1 diperoleh</br>
+                      z=12-2x-y</br>
+
+                      Subsitusikan z ke pers 2</br>
+                      x+2y-z=3</br>
+                      x+2y-(12-2x-y)=3</br>
+                      3x+3y=15</br>
+                      x+y=5</br>
+                      y=5-x</br>
+
+                      Subsitusikan z ke pers 3</br>
+                      3x-y+z=11</br>
+                      3x-y+(12-2x-y)=11</br>
+                      x-2y=-1</br>
+
+                      Subsitusikan y ke pers 5</br>
+                      x-2y=-1</br>
+                      x-2(5-x)=-1</br>
+                      3x=9</br>
+                      x=3</br>
+
+                      Subsitusikan x ke pers 4</br>
+                      y=5-x</br>
+                      y=5-3</br>
+                      y=2</br>
+
+                      Subsitusikan x dan y ke pers 1</br>
+                      2x+y+z=12</br>
+                      2(3)+2+z=12</br>
+                      z=4</br>
+
+                      HP: {(3,2,4)}</br>
+
+
+                      Contoh soal</br>
+                      Tentukan Himpunan Penyelesaian dari SPLTV berikut</br>
+                      x+y+z=-6</br>
+                      x+y-2z=3</br>
+                      x-2y+z=9</br>
+
+                      Jawab :</br>
+                      Dari persamaan 1 diperoleh</br>
+                      x=-6-y-z</br>
+
+                      Subsitusikan x ke pers 2</br>
+                      (-6-y-z)+y-2z=3</br>
+                      -3z=9</br>
+                      z=-3</br>
+
+                      Subsitusikan x ke pers 3</br>
+                      x-2y+z=9</br>
+                      (-6-y-z)-2y+z=9</br>
+                      -3y=15</br>
+                      y=-5</br>
+
+                      Subsitusikan y dan z ke pers 1</br>
+                      x+y+z=-6</br>
+                      x+(-5)+(-3)=-6</br>
+                      x=2</br>
+
+                      HP: {(2,-5,-3)}</br>
+                    </p>
+                </div>
+                <div class="soal">
+                  <h4 class="card-title" id="list-item-3">Materi 3</h4>
+                    <p>
+                      Metode eliminasi</br>
+                      Contoh soal</br>
+                      Tentukan Himpunan Penyelesaian Dari</br>
+                      x-y+z=-4</br>
+                      2x+y+2z=-5</br>
+                      3x-y-z=6</br>
+
+                      Jawab :</br>
+
+                      Eliminasi y dari 1 dan 2</br>
+                      x-y+z=-4</br>
+                      2x+y+2z=-5  +</br>
+                      3x+3z=-9</br>
+
+                      Eliminasi y dari 2 dan 3</br>
+                      2x+y+2z=-5</br>
+                      3x-y-z=6  +</br>
+                      5x+z=-11</br>
+
+                      Eliminasi z dari 4 dan 5</br>
+                      3x+3z=-9 |×1|</br>
+                      5x+z=-11 |×3|</br>
+                      3x+3z=-9</br>
+                      15x+3z=-33  _</br>
+                      -12x=24</br>
+                      x=-2</br>
+
+                      Eliminasi x dari 4 dan 5</br>
+                      3x+3z=-9 |×5|</br>
+                      5x+z=-11 |×3|</br>
+                      15x+15z=-45</br>
+                      15x+3z=-33  _</br>
+                      12z=-12</br>
+                      z=-1</br>
+
+                      Eliminasi x dan z dari 1 dan 2</br>
+                      x-y+z=-4 |×2|</br>
+                      2x+y+2z=-5 |×1|</br>
+                      2x-2y+2z=-8 </br>
+                      2x+y+2z=-5  _</br>
+                      -3y=-3</br>
+                      y=1</br>
+
+                      HP:{(-2,1,-1)}</br>
+
+
+                      Contoh soal</br>
+                      Tentukan Himpunan Penyelesaian dari SPLTV berikut</br>
+                      x+3y+2z=16</br>
+                      2x+4y-2z=12</br>
+                      x+y+4z=20</br>
+
+                      Jawab :</br>
+                      x+3y+2z=16 |×2|</br>
+                      2x+4y-2z=12 |×1|</br>
+                      x+y+4z=20 |×2|</br>
+                      2x+6y+4z=32</br>
+                      2x+4y-2z=12</br>
+                      2x+2y+8z=40</br>
+
+                      2x+6y+4z=32</br>
+                      2x+4y-2z=12   _</br>
+                      2y+6z=20</br>
+
+                      2x+4y-2z=12</br>
+                      2x+2y+8z=40  _</br>
+                      2y-10z=-28</br>
+
+                      2y+6z=20 |×5|</br>
+                      2y-10z=-28 |×3|</br>
+                      10y+30z=100 </br>
+                      6y-30z=-84   +</br>
+                      16y=16</br>
+                      y=1</br>
+
+                      2y+6z=20 </br>
+                      2y-10z=-28   _</br>
+                      16z=48</br>
+                      z=3</br>
+
+                      x+y+4z=20</br>
+                      x+1+4(3)=20</br>
+                      x=7</br>
+
+                      HP: {(7,1,3)}</br>
+                    </p>
+                </div>
+                <div class="soal">
+                  <h4 class="card-title" id="list-item-4">Materi 4</h4>
+                  <p>
+                    metode gabungan</br>
+                    contoh soal</br>
+                    Tentukan Himpunan Penyelesaian Dari</br>
+                    x+y+z=9</br>
+                    8x-10y-z=0</br>
+                    10x+y-8z=0</br>
+  
+                    Jawab :</br>
+                    Eliminasi z dari 1 dan 2</br>
+                    x+y+z=9</br>
+                    8x-10y-z=0  +</br>
+                    9x-9y=9</br>
+                    x-y=1</br>
+  
+                    Eliminasi z dari 1 dan 3</br>
+                    x+y+z=9 |×8|</br>
+                    10x+y-8z=0 |×1|</br>
+                    8x+8y+8z=72 </br>
+                    10x+y-8z=0 +</br>
+                    18x+9y=72</br>
+                    2x+y=8</br>
+  
+                    Eliminasi y dari 4 dan 5</br>
+                    x-y=1</br>
+                    2x+y=8  +</br>
+                    3x=9</br>
+                    x=3</br>
+  
+                    Subsitusikan x ke 4</br>
+                    x-y=1</br>
+                    3-y=1</br>
+                    y=2</br>
+  
+                    Subsitusikan x dan y ke 1</br>
+                    x+y+z=9</br>
+                    3+2+z=9</br>
+                    z=4</br>
+  
+                    HP: {(3,2,4)}</br>
+  
+  
+                    Contoh soal</br>
+                    Tentukan Himpunan Penyelesaian dari SPLTV berikut</br>
+                    x-y+2z=5</br>
+                    2x+y-z=9</br>
+                    x-2y+3z=4</br>
+  
+                    Jawab :</br>
+                    Eliminasi x dari 1 dan 2</br>
+                    x-y+2z=5 |×2|</br>
+                    2x+y-z=9 |×2|</br>
+                    2x-2y+4z=10</br>
+                    2x+y-z=9   _</br>
+                    -3y+5z=1</br>
+  
+                    Eliminasi x dari 1 dan 3</br>
+                    x-y+2z=5</br>
+                    x-2y+3z=4  _</br>
+                    y-z=1</br>
+  
+                    Eliminasi y dari 4 dan 5</br>
+                    -3y+5z=1 |×1|</br>
+                    y-z=1 |×3|</br>
+                    -3y+5z=1 </br>
+                    3y-3z=3   _</br>
+                    2z=4</br>
+                    z=2</br>
+  
+                    Subsitusi z ke 5</br>
+                    y-z=1</br>
+                    y-2=1</br>
+                    y=3</br>
+  
+                    Subsitusi z dan y ke 1</br>
+                    2x+y-z=9</br>
+                    2x+3-2=9</br>
+                    2x=8</br>
+                    x=4</br>
+  
+                    HP: {(4,3,2)}</br>
+  
+                  </p>
+                </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card list item -->
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+              <div id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action" href="#list-item-1">Materi 1</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Materi 2</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Materi 3</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-4">Materi 4</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- spyscroll nested nav -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- untuk login -->
+    {% include './masuk.html' %}
+  </body>
+</html>

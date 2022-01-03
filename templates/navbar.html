@@ -1,0 +1,42 @@
+<div class="navbar_content">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <img src="./static/LOGO_MATH.png" class="resize" alt="icon">
+          <a class="navbar-brand" href="#">MathLearning</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!-- <a class="nav-link active" aria-current="page" href="{{url_for('home', arg = status)}}">Home</a> -->
+                <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{status}}" href="#" aria-disabled="false"  tabindex="-1">Profil</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Akun Pengguna
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{{url_for('home')}}" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Masuk</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('daftar')}}">Daftar</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{url_for('lupasandi')}}">Lupa kata sandi ?</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div id='date-time' class="jam"></div>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Cari..." aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Cari</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <script>
+        var dt = new Date();
+        document.getElementById('date-time').innerHTML=dt;
+      </script>
+</div>

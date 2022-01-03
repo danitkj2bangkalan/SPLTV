@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!-- didesain oleh mrfirdaus -->
+  <head>
+    <title>Math Learning</title>
+    <!-- meta tag -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    
+    <!--     Fonts and icons     -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Bootstrap -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css' )}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css' )}}" />
+    
+    <!-- untuk javascripts -->
+    <script type="text/javascript" src="{{url_for('static', filename='js/sidebar.js')}}"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    {% include './navbar.html' %} 
+    <!-- card isi  -->
+    <div class="row">
+      <!-- card 1 -->
+      <div class="col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            {% include './sidebar.html' %} 
+          </div>
+        </div>
+      </div>
+      <!-- card 2 -->
+      <div class="col-sm-10">
+        <div class="card">
+          <h4 class="card-title" ><strong>Jawab Quiz berikut dengan memilih jawaban yang benar !</strong></h4>
+          <div class="card-body">
+            <ol type="1">
+              <hr>
+              <div class="soal">
+                <li>
+                  <!-- 1 -->
+                  Perbandingan uang A dan B adalah 3:4. Perbandingan uang B dan C adalah 8:9.</br> 
+                  Jika jumlah uang A dan B lebih banyak Rp. 40.000 dari uang C, maka jumlah A, B, dan C adalah....</br>
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice1" value="a">
+                      <label for="a">Rp. 144.000</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice1" value="b">
+                      <label for="b">Rp. 148.000</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice1" value="c">
+                      <label for="c">Rp. 184.000</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice1" value="d">
+                      <label for="d">Rp. 188.000</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 2 -->
+                  Perbandingan uang milik silvi dan arya adalah 2:3.</br> Perbandingan uang milik arya dan beni adalah 6:5.</br> Jika jumlah uang silvi dan arya sebesar Rp.200.000 lebih banyak dari beni,</br> maka uang beni sebesar…
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice2" value="a">
+                      <label for="a">Rp. 200.000</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice2" value="b">
+                      <label for="b">Rp. 100.000</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice2" value="c">
+                      <label for="c">Rp. 90.000</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice2" value="d">
+                      <label for="d">Rp. 80.000</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 3 -->
+                  Jumlah tiga bilangan adalah 75.</br> Bilangan pertama lima lebihnya dari jumlah bilangan lain.</br> Bilangan kedua sama dengan seperempat dari jumlah bilangan lain.</br> Bilangan ketiga adalah…
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice3" value="a">
+                      <label for="a">10</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice3" value="b">
+                      <label for="b">20</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice3" value="c">
+                      <label for="c">30</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice3" value="d">
+                      <label for="d">40</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 4 -->
+                  x+2z = 3y+2</br>
+                  y-z = -4x-7</br>
+                  3z-2 = -2(x+y-10)</br>
+                  Tentukan nilai x, y, z!</br>
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice4" value="a">
+                      <label for="a">-1, 3, dan 6</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice4" value="b">
+                      <label for="b">1, -3, dan 6</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice4" value="c">
+                      <label for="c">2, -3, dan 6</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice4" value="d">
+                      <label for="d">2, 3, dan 6</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <div class="soal">
+                <li >
+                  <!-- 5 -->
+                  Bila A dan B bekerja bersama dapat menyelesaikan pekerjaan selama 4 hari,</br> B dan C bekerja bersama dapat menyelesaikan pekerjaan selama 3 hari,</br> sedangkan A dan C bekerja bersama dapat menyelesaikan pekerjaan itu selama 2,4 hari.</br> Dalam berapa harikah mereka dapat menyelesaikan pekerjaan apabila mereka bekerja sendiri-sendiri?
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice5" value="a">
+                      <label for="a">12 hari, 4 hari, dan 6 hari</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice5" value="b">
+                      <label for="b">6 hari, 12 hari, dan 4 hari</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice5" value="c">
+                      <label for="c">12 hari, 6 hari, dan 4 hari</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice5" value="d">
+                      <label for="d">6 hari, 4 hari, dan 12 hari</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 6 -->
+                  1/x+4/y+3/z=8</br>
+                  3/x-1/y+1/z=3</br>
+                  2/x-3/y+1/z=-2</br>
+                  Maka nilai (x,y,z) adalah …</br>
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice6" value="a">
+                      <label for="a">23/37, 23/39, 23/-3</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice6" value="b">
+                      <label for="b">27/32, 29/39, 23/-3</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice6" value="c">
+                      <label for="c">23/32, 23/39, 23/3</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice6" value="d">
+                      <label for="d">27/37, 29/39, 23/-3</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 7 -->
+                  Nilai z yang memenuhi</br>
+                  2x+y=4</br>
+                  X+2y=3</br>
+                  3y-z=5</br>
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice7" value="a">
+                      <label for="a">2</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice7" value="b">
+                      <label for="b">1</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice7" value="c">
+                      <label for="c">-1</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice7" value="d">
+                      <label for="d">-2</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 8 -->
+                  1/x+2/y=1</br>
+                  1/x+4/z=0</br>
+                  1/y+2/z=1</br>
+                  Nilai dari 1/x+1/y+1/z=</br>
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice8" value="a">
+                      <label for="a">1/8</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice8" value="b">
+                      <label for="b">¼</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice8" value="c">
+                      <label for="c">3/8</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice8" value="d">
+                      <label for="d">½</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 9 -->
+                  Dua tahun yang akan datang, jumlah umur adi, budi, dan caca adalah 39 tahun.</br> Saat ini umur adi 4 tahun kurang dari umur budi, serta jumlah usia budi dan caca 25 tahun.</br> Tentukan umur mereka sekarang.</br> 
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice9" value="a">
+                      <label for="a">12, 13, dan 8</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice9" value="b">
+                      <label for="b">13,12, dan 10</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice9" value="c">
+                      <label for="c">8, 12, dan 13</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice9" value="d">
+                      <label for="d">8,13, dan 10</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+              <div class="soal">
+                <li >
+                  <!-- 10 -->
+                  Rio memiliki bola merah, biru, dan hijau.</br> Perbandingan banyak bola merah dan biru adalah 3:4.</br> Jumlah bola merah dan hijau 30, jika dua kali banyak bola biru ditambah bola hijau 50, tentukan banyak seluruh bola.</br>
+                  <ol type="A">
+                    <li>
+                      <input type="radio" id="a" name="multiple_choice10" value="a">
+                      <label for="a">45</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="b" name="multiple_choice10" value="b">
+                      <label for="b">46</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="c" name="multiple_choice10" value="c">
+                      <label for="c">47</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="d" name="multiple_choice10" value="d">
+                      <label for="d">48</label>
+                    </li>
+                  </ol>
+                </li>
+              </div>
+              <hr>
+            </ol>
+            <!-- untuk pengumpulan -->
+            <div class="card text-center">
+              <div class="card-body">
+                <a href="#" class="btn btn-warning">Kumpulkan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card isi  -->
+    <!-- untuk login -->
+    {% include './masuk.html' %}
+  </body>
+</html>
