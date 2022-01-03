@@ -1,4 +1,5 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
+from flask_wtf import FlaskForm
 # membuat instance flask
 app = Flask(__name__)
 #membuat route decorator
