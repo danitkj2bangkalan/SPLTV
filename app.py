@@ -1,10 +1,24 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
 from webforms import LoginForm
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 # membuat instance flask
 app = Flask(__name__)
 # untuk individual page
-app.config['SECRET_KEY'] = "sahur amin"
+app.config['SECRET_KEY'] = "sahur amin" # secret key
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' #menambahkan database
+db = SQLAlchemy(app) # inisialisasi database
 
+#membuat model 
+class Users(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(200), nullable=False)
+	email = db.Column(db.String(120), nullable=False, unique=True)
+	password_hash = db.Column(db.String(128))
+	date_added = db.Column(db.DateTime, default=datetime.utcnow)
+	# Create A String
+	def __repr__(self):
+		return '<Name %r>' % self.name
 
 @app.route("/materi")
 def materi():
