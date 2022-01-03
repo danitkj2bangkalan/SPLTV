@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
 
-          <form action="/do" method="post">
+          <!-- <form action="/do" method="post">
             <div class="mb-3">
               <label for="staticEmail" class="col-form-label">Nama Pengguna atau Email</label>
               <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="....">
@@ -19,7 +19,24 @@
             <div class="mb-3">
               <button type="submit" class="btn btn-primary">Masuk</button>
             </div>
-          </form>
+          </form> -->
+          <form >
+            {{ form.hidden_tag() }}
+        
+            {{ form.username.label(class="form-label") }}
+        
+            {{ form.username(class="form-control") }}
+            <br/>
+        
+            {{ form.password.label(class="form-label") }}
+        
+            {{ form.password(class="form-control") }}
+            <br/>
+        
+            
+            <br/>
+        
+            {{ form.submit(class="btn btn-secondary") }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
