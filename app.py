@@ -1,5 +1,6 @@
+from tkinter.messagebox import NO
 from flask import Flask, render_template, flash, request, redirect, url_for
-from webforms import LoginForm
+from webforms import LoginForm, UserForm
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 # membuat instance flask
@@ -14,7 +15,7 @@ class Users(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(200), nullable=False)
 	email = db.Column(db.String(120), nullable=False, unique=True)
-	password_hash = db.Column(db.String(128))
+	# password_hash = db.Column(db.String(128))
 	date_added = db.Column(db.DateTime, default=datetime.utcnow)
 	# Create A String
 	def __repr__(self):
@@ -48,9 +49,24 @@ def referensi():
 def pengaturan():
 	return render_template("pengaturan.html")
 
-@app.route("/daftar")
+@app.route("/user/add",methods=['GET','POST'])
 def daftar():
-	return render_template("daftar.html")
+	name = None
+	form = UserForm()
+	if form.validate_on_submit():
+		# user = Users.query.filter_by(email = form.email.data).first()
+		# if user is None :
+		user = Users(name = form.name.data, email=form.email.data)
+		db.session.add(user)
+		db.session.commit()
+		name = form.name.data
+		form.name.data = ''
+		form.email.data = ''
+		flash("user ditambahkan")
+	our_users = Users.query.order_by(Users.date_added)
+
+	return render_template("daftar.html", form = form,
+	name = name, our_users = our_users)
 
 @app.route("/lupasandi")
 def lupasandi():
@@ -60,25 +76,25 @@ def lupasandi():
 def guru():
 	return render_template("guru.html")
 
-@app.route('/login',methods=['GET','POST'])
-def login():
-	form = LoginForm()
-	username = None
-	password = None
-	if form.validate_on_submit():
-		username = form.username.data
-		password = form.password.data
-		print(username,password)
-		if username == 'amin' and password == 'amin':
-			flash("Sudah bisa masuk min")
-			return redirect(url_for('guru'))
+# @app.route('/login',methods=['GET','POST'])
+# def login():
+# 	form = LoginForm()
+# 	username = None
+# 	password = None
+# 	if form.validate_on_submit():
+# 		username = form.username.data
+# 		password = form.password.data
+# 		print(username,password)
+# 		if username == 'amin' and password == 'amin':
+# 			flash("Sudah bisa masuk min")
+# 			return redirect(url_for('guru'))
 
-	return (form)
+# 	return (form)
 
 @app.route("/")
 def home():
-	form = login()
-	return render_template("home.html", form=form)
+	
+	return render_template("home.html")
 
 #membuat custom error pages
 # Invalid URL
