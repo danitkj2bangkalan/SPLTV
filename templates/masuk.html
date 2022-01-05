@@ -20,9 +20,21 @@
               <button type="submit" class="btn btn-primary">Masuk</button>
             </div>
           </form> -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-        </div>
+          <form method="post">
+            {{ form.hidden_tag() }}
+            {{ form.nama.label}}
+            {{ form.nama(class="form-control") }}
+
+            {{ form.katasandi.label}}
+            {{ form.katasandi(class="form-control") }}
+
+            <div class="modal-footer">
+              {{ form.masuk(class="btn btn-secondary") }}
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button> -->
+            </div>
+            
+          </form>
+        
       </div>
     </div>
   </div>

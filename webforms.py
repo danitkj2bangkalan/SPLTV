@@ -6,9 +6,9 @@ from wtforms.widgets import TextArea
 
 # Create Login Form
 class LoginForm(FlaskForm):
-	username = StringField("Username", validators=[DataRequired()])
-	password = PasswordField("Password", validators=[DataRequired()])
-	submit = SubmitField("Submit")
+	nama = StringField("Username", validators=[DataRequired()])
+	katasandi = PasswordField("Password", validators=[DataRequired()])
+	masuk = SubmitField("Masuk")
 # Create a Form Class
 class UserForm(FlaskForm):
 	name = StringField("Name", validators=[DataRequired()])

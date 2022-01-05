@@ -21,6 +21,21 @@ class Users(db.Model):
 	def __repr__(self):
 		return '<Name %r>' % self.name
 
+# developing templates
+@app.route("/",methods=['GET','POST'])
+def home():
+	form = LoginForm()
+	name = None
+	passwd= None
+	if form.validate_on_submit():
+		name = form.nama.data
+		passwd = form.katasandi.data
+		print(name,passwd)
+		if name == 'amin' and passwd == 'amin':
+			return redirect(url_for('guru'))
+
+	return render_template("home.html", form = form)
+
 @app.route("/materi")
 def materi():
 	return render_template("materi.html")
@@ -63,10 +78,10 @@ def daftar():
 		form.name.data = ''
 		form.email.data = ''
 		flash("user ditambahkan")
-	our_users = Users.query.order_by(Users.date_added)
+	
 
 	return render_template("daftar.html", form = form,
-	name = name, our_users = our_users)
+	name = name)
 
 @app.route("/lupasandi")
 def lupasandi():
@@ -74,7 +89,10 @@ def lupasandi():
 
 @app.route("/guru")
 def guru():
-	return render_template("guru.html")
+	name = None
+	form = UserForm()
+	our_users = Users.query.order_by(Users.date_added)
+	return render_template("guru.html", name = name, our_users = our_users)
 
 # @app.route('/login',methods=['GET','POST'])
 # def login():
@@ -91,10 +109,7 @@ def guru():
 
 # 	return (form)
 
-@app.route("/")
-def home():
-	
-	return render_template("home.html")
+
 
 #membuat custom error pages
 # Invalid URL

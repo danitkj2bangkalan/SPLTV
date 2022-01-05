@@ -28,7 +28,10 @@
     
     <!-- splash screen -->
     <div class="splash">
-      <img src="./static/LOGO_MATH.png" class="fade-in resize_logo_home" alt="icon">
+      <!-- <img src="./static/LOGO_MATH.png" class="fade-in resize_logo_home" alt="icon"> -->
+      <center>
+        <h1 class="fade-in resize_logo_home">Selamat datang sebagai guru</h1>
+      </center>
     </div>
     <!-- card isi  -->
     <div class="row">
@@ -46,17 +49,19 @@
           <div class="card-body">
             <!-- isi carousel -->
             
+            <h1>Daftar Murid:</h1>
+            <br/>
+            <table class="table table-hover table-bordered table-striped">
 
-            {% for message in get_flashed_messages() %}
-                
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-
-                
+            {% for our_user in our_users %}
+              <tr>
+              <td>{{ our_user.id }}. 
+                {{ our_user.name }} - {{ our_user.email }} 
+                </td>
+              </tr>
             {% endfor %}
-            halaman guru
+
+            </table>
             
           </div>
         </div>
@@ -64,7 +69,6 @@
     </div>
     <!-- card isi  -->
     <!-- untuk login -->
-    {% include './masuk.html' %}
     {% endblock %}
     <script src="{{ url_for('static', filename='js/splashscreen.js')}}"></script>
   </body>
