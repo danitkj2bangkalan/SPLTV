@@ -64,7 +64,7 @@ def referensi():
 def pengaturan():
 	return render_template("pengaturan.html")
 
-@app.route("/user/add",methods=['GET','POST'])
+@app.route("/daftar",methods=['GET','POST'])
 def daftar():
 	name = None
 	form = UserForm()
