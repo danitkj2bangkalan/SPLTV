@@ -94,21 +94,31 @@ def guru():
 	our_users = Users.query.order_by(Users.date_added)
 	return render_template("guru.html", name = name, our_users = our_users)
 
-# @app.route('/login',methods=['GET','POST'])
-# def login():
-# 	form = LoginForm()
-# 	username = None
-# 	password = None
-# 	if form.validate_on_submit():
-# 		username = form.username.data
-# 		password = form.password.data
-# 		print(username,password)
-# 		if username == 'amin' and password == 'amin':
-# 			flash("Sudah bisa masuk min")
-# 			return redirect(url_for('guru'))
-
-# 	return (form)
-
+#update user
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+	form = UserForm()
+	name_to_update = Users.query.get_or_404(id)
+	if request.method == "POST":
+		name_to_update.name = request.form['name']
+		name_to_update.email = request.form['email']
+		try:
+			db.session.commit()
+			flash("User Updated Successfully!")
+			return render_template("update.html", 
+				form=form,
+				name_to_update = name_to_update, id=id)
+		except:
+			flash("Error!  Looks like there was a problem...try again!")
+			return render_template("update.html", 
+				form=form,
+				name_to_update = name_to_update,
+				id=id)
+	else:
+		return render_template("update.html", 
+				form=form,
+				name_to_update = name_to_update,
+				id = id)
 
 
 #membuat custom error pages
