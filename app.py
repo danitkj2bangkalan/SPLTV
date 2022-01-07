@@ -2,6 +2,7 @@ from tkinter.messagebox import NO
 from flask import Flask, render_template, flash, request, redirect, url_for
 from webforms import LoginForm, UserForm
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from datetime import datetime
 # membuat instance flask
 app = Flask(__name__)
@@ -65,6 +66,7 @@ def referensi():
 def pengaturan():
 	return render_template("pengaturan.html")
 
+# untuk ngisi data ke database ---
 @app.route("/daftar",methods=['GET','POST'])
 def daftar():
 	name = None
@@ -78,22 +80,29 @@ def daftar():
 		name = form.name.data
 		form.name.data = ''
 		form.email.data = ''
+		# form.score.data = ''
 		flash("user ditambahkan")
 	
-
 	return render_template("daftar.html", form = form,
 	name = name)
 
+@app.route("/guru")
+def guru():
+	score = None
+	form = UserForm()
+	if form.validate_on_submit():
+		user = Users(score = form.score.data)
+		db.session.add(user)
+		db.session.commit()
+		score = form.score.data
+		form.score.data = ''
+		flash("nilai tugas sudah ditambahkan")
+	our_users = Users.query.order_by(Users.date_added)
+	return render_template("guru.html", score = score, our_users = our_users)
+# ---
 @app.route("/lupasandi")
 def lupasandi():
 	return render_template("lupasandi.html")
-
-@app.route("/guru")
-def guru():
-	name = None
-	form = UserForm()
-	our_users = Users.query.order_by(Users.date_added)
-	return render_template("guru.html", name = name, our_users = our_users)
 
 #update user
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
@@ -105,12 +114,12 @@ def update(id):
 		name_to_update.email = request.form['email']
 		try:
 			db.session.commit()
-			flash("User Updated Successfully!")
+			flash("User berhasil diupdate")
 			return render_template("update.html", 
 				form=form,
 				name_to_update = name_to_update, id=id)
 		except:
-			flash("Error!  Looks like there was a problem...try again!")
+			flash("Error!  Sepertinya ada masalah coba lagi")
 			return render_template("update.html", 
 				form=form,
 				name_to_update = name_to_update,
