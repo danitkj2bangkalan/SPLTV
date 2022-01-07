@@ -9,10 +9,9 @@
 	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 
-	
 {% endfor %}
 
-
+	<a class="nav-link active" aria-current="page" href="{{url_for('guru')}}">Halaman Guru</a>
 	<h1>Update User...</h1>
 	<br/>
 <div class="shadow p-3 mb-5 bg-body rounded">
@@ -24,7 +23,6 @@
 		{{ form.name(class="form-control", value=name_to_update.name) }}
 		<br/>
 
-
 		{{ form.email.label(class="form-label") }}
 
 		{{ form.email(class="form-control", value=name_to_update.email) }}
@@ -33,13 +31,8 @@
 		
 		{{ form.submit(class="btn btn-secondary") }}
 
-
-
 	</form>
 </div>
 <br/><br/><br/>
-
-
-
 
 {% endblock %}
