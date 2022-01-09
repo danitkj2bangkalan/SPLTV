@@ -10,14 +10,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "sahur amin" # secret key
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' #menambahkan database
 db = SQLAlchemy(app) # inisialisasi database
-
-#membuat model 
+migrate = Migrate(app, db) 
+#membuat model database
 class Users(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(200), nullable=False)
 	email = db.Column(db.String(120), nullable=False, unique=True)
-	
-	# password_hash = db.Column(db.String(128))
+	nilai = db.Column(db.String(200))
 	date_added = db.Column(db.DateTime, default=datetime.utcnow)
 	# Create A String
 	def __repr__(self):
@@ -74,13 +73,13 @@ def daftar():
 	if form.validate_on_submit():
 		# user = Users.query.filter_by(email = form.email.data).first()
 		# if user is None :
-		user = Users(name = form.name.data, email=form.email.data)
+		user = Users(name = form.name.data, email=form.email.data, score = form.nilai.data)
 		db.session.add(user)
 		db.session.commit()
 		name = form.name.data
 		form.name.data = ''
 		form.email.data = ''
-		# form.score.data = ''
+		form.nilai.data = ''
 		flash("user ditambahkan")
 	
 	return render_template("daftar.html", form = form,
@@ -88,17 +87,10 @@ def daftar():
 
 @app.route("/guru")
 def guru():
-	score = None
+
 	form = UserForm()
-	if form.validate_on_submit():
-		user = Users(score = form.score.data)
-		db.session.add(user)
-		db.session.commit()
-		score = form.score.data
-		form.score.data = ''
-		flash("nilai tugas sudah ditambahkan")
 	our_users = Users.query.order_by(Users.date_added)
-	return render_template("guru.html", score = score, our_users = our_users)
+	return render_template("guru.html", our_users = our_users)
 # ---
 @app.route("/lupasandi")
 def lupasandi():
@@ -112,6 +104,7 @@ def update(id):
 	if request.method == "POST":
 		name_to_update.name = request.form['name']
 		name_to_update.email = request.form['email']
+		name_to_update.nilai = request.form['nilai']
 		try:
 			db.session.commit()
 			flash("User berhasil diupdate")
