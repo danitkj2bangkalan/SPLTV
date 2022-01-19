@@ -122,7 +122,24 @@ def update(id):
 				form=form,
 				name_to_update = name_to_update,
 				id = id)
-
+	
+@app.route('/posts/delete/<int:id>')
+def delete_post(id):
+	user_to_delete = Users.query.get_or_404(id)
+	form = UserForm()
+	name = None
+	try:
+		db.session.delete(user_to_delete)
+		db.session.commit()
+		flash("user berhasil dihapus")
+		
+		our_users = Users.query.order_by(Users.date_added)
+		return render_template("guru.html", our_users = our_users, 
+		name = name, form = form)
+	except:
+		flash('ada masalah saat penghapusan user')
+		return render_template("guru.html", our_users = our_users, 
+		name = name, form = form)
 
 #membuat custom error pages
 # Invalid URL
